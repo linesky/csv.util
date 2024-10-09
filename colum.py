@@ -14,21 +14,23 @@ def main():
         with open(filename, 'rt') as file:
             # Lê o arquivo linha por linha e imprime na consola
             for line in file:
+                line=line.strip()
                 lines=line.split(",")
                 counts=len(lines)
                 c=0
-                if counts>=colums:
+                if counts>=colums and line!="":
                     print(lines[colums], end='')
                     if counts!=colums:
                         print(",", end='')
                 
-                for cols in range(counts):
-                    if cols!=colums:
-                        print(lines[cols], end='')
-                        if counts-1>c:
-                            print(",", end='')
-                    c+=1
-                print("")    
+                if line!="":    
+                    for cols in range(counts):
+                        if cols!=colums:
+                            print(lines[cols], end='')
+                            if counts-2>cols or (cols==counts and counts==colums)or (counts-2==cols and 0==colums):
+                                print(",", end='')
+                        
+                    print("")    
     except FileNotFoundError:
         print(f"Erro: file '{filename}' not find.")
     except Exception as e:
