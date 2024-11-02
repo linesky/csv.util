@@ -1,4 +1,2 @@
-# csv.util
-Utilitys to csv
-
-code freebasic and python
+# freebasic.split
+split function to old soft
